@@ -1,0 +1,15 @@
+.login-wrapper {
+  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #000;
+  .login-form {
+    width: 410px;
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 4px;
+  }
+}
