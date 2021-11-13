@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainWrapper from '../../layout/Main';
-import '../back/Back.sass'
+import '../back/Back.scss'
 
 class Users extends Component {
 
