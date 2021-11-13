@@ -9,7 +9,12 @@ const notEmpty = (val) =>{
   }
 }
 class Login extends Component {
+constructor(q){
+    super(q)
+    this.OWNER=React.createRef();
+    this.PASSWORD=React.createRef();
 
+}
   
   state = {
     formInitialValues: {
@@ -17,14 +22,19 @@ class Login extends Component {
     }
   }   
 log=(e)=>{
-  message.success('3.2.1.返回去了')
+  const OWNER=this.OWNER.current.state.value
+  const PASSWORD=this.PASSWORD.current.state.value
+  console.log( OWNER,PASSWORD )
+    if(OWNER =='BILIBILI' && PASSWORD== 'GANBEI')   {
+  message.success('登录成功')
   setTimeout(() => {window.history.back(-1)
     
-  }, 3000);
- 
-
-
-
+  }, 2000);
+   
+} else{
+  message.error('登录名：BILIBILI，密码：GANBEI')
+}
+  
 }
 
   render() {
@@ -43,7 +53,7 @@ log=(e)=>{
               notEmpty('用户名')
             ]}
           >
-            <Input  placeholder="请输入用户名" />
+            <Input  ref={this.OWNER}    placeholder="请输入用户名" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -51,7 +61,7 @@ log=(e)=>{
               notEmpty('密码')
             ]}
           >
-            <Input.Password placeholder="请输入用户名" />
+            <Input.Password   ref={this.PASSWORD}      placeholder="请输入密码" />
           </Form.Item>
           <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
